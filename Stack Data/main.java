@@ -60,7 +60,8 @@ public class main {
         s.push(4);
 
         while (!s.isEmpty()) {
-            System.out.println(s.pop());
+            System.out.println(s.peek());
+            s.pop();
         }
 
     }
