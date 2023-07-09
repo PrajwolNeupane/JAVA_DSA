@@ -9,8 +9,10 @@ public class QueueWithArray {
         static int rear = -1;
 
         Queue(int n) {
-            arr = new int[n];
-            this.size = n;
+            size = n;
+            arr = new int[size];
+            rear = -1;
+
         }
 
         public static boolean isEmpty() {
@@ -22,8 +24,7 @@ public class QueueWithArray {
                 System.out.println("Queue is full");
                 return;
             }
-            rear++;
-            arr[rear] = data;
+            arr[++rear] = data;
         }
 
         public static int remove() {
@@ -40,13 +41,24 @@ public class QueueWithArray {
             return front;
         }
 
-        // public static peek(){
-
-        // }
+        public static int peek() {
+            if (isEmpty()) {
+                return -1;
+            }
+            return arr[0];
+        }
 
     }
 
     public static void main(String[] args) {
-        System.out.println("s");
+        Queue queue = new Queue(5);
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+
+        while (!queue.isEmpty()) {
+            System.out.println(queue.peek());
+            queue.remove();
+        }
     }
 }
